@@ -1,0 +1,8 @@
++--------+-------------+------------+--------------------------+--------+--------------+----------+---------+-------+
+| name   | college     | mobile     | email                    | coding | Paper        | techquiz | singing | dance |
++--------+-------------+------------+--------------------------+--------+--------------+----------+---------+-------+
+| sanjay | irtt erode  | 8300264346 | sanjaynataraj7@gmail.com | Coding | Presentation | Techquiz | Singing | Dance |
+| bbbb   | abc college | 8756935765 | bbbb@gmail.com           | Coding | NULL         | Techquiz | NULL    | Dance |
+| cccc   | abc college | 8756965765 | cccc@gmail.com           | Coding | Presentation | Techquiz | NULL    | NULL  |
+| dddd   | xyz college | 9056965765 | dddd@gmail.com           | Coding | Presentation | Techquiz | Singing | NULL  ||  |
++--------+-------------+------------+--------------------------+--------+--------------+----------+---------+-------+

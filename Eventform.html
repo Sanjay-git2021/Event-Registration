@@ -1,0 +1,245 @@
+<!-- html forms -->
+<!-- JavaScript Form Validation -->
+<html>
+<head>
+
+    <title>Event Registration</title>
+	<style>
+
+		label
+		{
+
+            display:inline-block;
+			width:35%;
+
+            padding-left:100px;
+
+            text-align: left;
+
+            font-family:vivaldi;
+
+            font-size:x-large;
+
+            letter-spacing:2px;
+
+            line-height:40px;
+
+          }
+          textarea { vertical-align: top; }
+
+          select { vertical-align: top; }
+
+         
+
+          .btn {width: 100px; height: 30px;}
+		 
+		 body {
+				background-image: url('pbg.jpg');
+				background-repeat: no-repeat;
+				background-attachment: fixed;
+				background-size: cover;
+			 }
+
+     </style>
+
+ 
+
+     <script type="text/javascript" language="javascript">
+
+          function fnvalidate()
+
+          {
+
+              // User Name Validation
+
+              var username = (document.form1.LN.value).toString().trim();
+
+              if( username == "" || username.length < 4)
+
+              {
+
+                   alert( "Invalid user name! Should have atleast 4 characters." );
+
+                   document.form1.LN.focus() ;
+
+                   return false;
+
+              }
+
+              // Mobile Number Validation
+
+              var mobnum = document.form1.MN.value;
+
+              if( isNaN(mobnum))
+
+              {
+
+                   alert( "Mobile Number can have digits only!" );
+
+                   document.form1.MN.focus() ;
+
+                   return false;
+
+              }
+
+               
+
+              var S = mobnum.toString().trim();
+
+              if(S.length!=10)
+
+              {
+
+                   alert( "Invalid Mobile Number!!! Must have 10 digits..." );
+
+                   document.form1.MN.focus() ;
+
+                   return false;
+
+              }  
+
+             
+
+              // Email validation
+
+              var emailid = document.form1.Email.value;
+
+             
+
+              var atpos1 = emailid.indexOf("@");
+
+              var atpos2 = emailid.lastIndexOf("@");
+
+             
+
+              // Should contain (only) one @ character
+
+              if(atpos1==-1 || atpos1<1 || atpos1!=atpos2)
+
+              {
+
+                   alert( "Invalid Email ID!" );
+
+                   document.form1.Email.focus() ;
+
+                   return false;
+
+              }
+
+              // Should have atleast 2 character in domain name
+
+              var dotpos = emailid.lastIndexOf(".");
+
+              if((emailid.length-dotpos-1)<2 || (dotpos-atpos1)<2)
+
+              {
+
+                   alert( "Invalid Email ID!" );
+
+                   document.form1.Email.focus() ;
+
+                   return false;
+
+              }
+
+              // Check box validation – atleast one is selected…
+
+              var ele = document.getElementsByName("CB1");
+
+              var count=0;
+
+              for(var i=0;i<ele.length;i++)
+
+              {
+
+                   if(ele[i].checked==true)
+
+                   {
+
+                        count++;
+
+                   }
+
+              }         
+              if(count==0)
+
+              {
+
+                   alert("Please select atleast one hobby...");
+
+                   form1.CB1.focus();
+
+                   return false;
+
+              }            
+             // Check box validation
+
+              if(!form1.CB2.checked)
+
+              {
+
+                   alert("Please accept the Terms and Conditions to proceed...");
+
+                   form1.CB2.focus();
+
+                   return false;
+
+              }
+          
+             return true;
+
+          }
+
+     </script>
+
+</head>
+<body >
+	<form name="form1" action="http://localhost:8080/WT/RegisterData" method="post" onsubmit="return fnvalidate();">
+                 
+		  <CENTER><H1>INSTITUTE OF ROAD AND TRANSPORT TECHNOLOGY - ERODE</H1></CENTER>
+		  <CENTER><H2>DEPARTMENT OF INFORMATION TECHNOLOGISTs</H2></CENTER>
+		  </HR>
+		  <CENTER><H3>GUESTO FEST'2020</H3></CENTER>
+          <fieldset>
+
+          <legend>Registration Details </legend>
+
+          <label>Name </label>
+
+          <input type="text" Name="LN"/>
+       
+		  <br/>
+          <label>College </label>
+
+          <input type="College" Name="CLG" tabindex=2 />        
+		  <br/>
+		  
+          <label>Mobile Number </label>
+          <input type="text" Name="MN" tabindex=4/>
+		  
+		   <br/>
+          <label>Email ID </label>
+          <input type="text" Name="Email" tabindex=5 />  
+		  
+          <br/>
+          <label>Technical events </label>
+          <input type="checkbox" NAME="CB1" VALUE = "Coding" tabindex=6/>Coding
+          <input type="checkbox" NAME="CB2" VALUE = "Presentation" tabindex=7/>Paper Presentation
+          <input type="checkbox" NAME="CB3" VALUE = "Techquiz" tabindex=8/>Techquiz
+		  
+		  <br/>
+		  <label>Non Technical events </label>
+          <input type="checkbox" NAME="CB4" VALUE = "Singing" tabindex=6/>Singing
+          <input type="checkbox" NAME="CB5" VALUE = "Dance" tabindex=7/>Dance
+          </fieldset>
+          <br/>      
+          <center>
+          <input type="checkbox" NAME="CB6" required tabindex=9/>I Agree to the terms and conditions...
+          <br/><br/>
+          <button class="btn" type="submit" tabindex=10>Submit </button>
+          <button class="btn" type="reset" tabindex=11>Reset </button>
+          <br/><br/>
+          </center>
+     </form>
+</body>
+</html>
